@@ -1,4 +1,4 @@
-#AURA_Project
+# AURA_Project
 
 ## Database Design
 
