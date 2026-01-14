@@ -7,7 +7,7 @@ This guide explains how synthetic data is generated for the transactional schema
 - Tech: Python (pandas, numpy) for CSV generation; SQL for schema and loading.
 - Outputs: Supplier and customer CSVs are generated; other tables can be generated similarly respecting constraints below.
 
-## Schema And Relationships (At A Glance)
+## Schema And Relationships (At A Glance...)
 - One Supplier has many Products (Suppliers.supplier_id → Products.supplier_id)
 - One Customer has many Orders (Customers.customer_id → Orders.customer_id)
 - One Order has many Order_Items (Orders.order_id → Order_Items.order_id)
