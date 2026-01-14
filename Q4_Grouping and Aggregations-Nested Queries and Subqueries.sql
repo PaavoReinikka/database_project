@@ -38,8 +38,8 @@ FROM (
 /* Monthly breakdown: antal orders + total sales */
 /* 
 This query shows a monthly breakdown of:
-- Number of orders per month
-- Total sales per month
+ Number of orders per month
+Total sales per month
 */
 
 SELECT 
@@ -48,5 +48,50 @@ SELECT
     SUM(oi.quantity * oi.price_at_purchase) AS total_sales  /* Total sales per month */
 FROM orders o
 JOIN order_items oi ON o.order_id = oi.order_id  /* Link orders to order items */
-GROUP BY month  /* Group results by month */
-ORDER BY month;  /* Sort by month */
+GROUP BY month  
+ORDER BY month;  
+
+
+
+
+
+
+/* Products that never been order */
+SELECT 
+    p.product_id,
+    p.name,
+    p.category
+FROM products p
+WHERE p.product_id NOT IN (
+    SELECT DISTINCT oi.product_id
+    FROM order_items oi
+);
+
+
+
+/* Orders with the highest number of items  */
+SELECT 
+    order_id,
+    total_items
+FROM (
+    SELECT 
+        oi.order_id,
+        SUM(oi.quantity) AS total_items  /* Total number of items per order */
+    FROM order_items oi
+    GROUP BY oi.order_id
+) sub
+WHERE total_items = (
+    SELECT MAX(total_items)
+    FROM (
+        SELECT 
+            SUM(quantity) AS total_items
+        FROM order_items
+        GROUP BY order_id
+    ) max_sub
+);
+/* 
+Finds the order(s) with the most items.
+Counts how many items each order has.
+Returns the order(s) with the highest count.
+*/
+
