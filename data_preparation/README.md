@@ -21,7 +21,7 @@ See SQL DDL in `sql/schema.sql`.
 Recommended load order to maintain referential integrity:
 1) Suppliers → 2) Products → 3) Customers → 4) Orders → 5) Order_Items → 6) Shipments
 
-## Source Data And Scripts
+## Source Data And Scripts (names expected to evolve, same for final directory structure)
 - Suppliers
   - Script: `suppliers-table-final.py`
   - Inputs: `companies.csv`, `countries.csv`
