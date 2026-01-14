@@ -2,8 +2,16 @@
 
 ### Project group: Firat, Josefine, Nadja, Paavo
 
+### Group roles:
+ - Database design and relationships: Josefine
+ - Data generation: Paavo
+ - Analytical queries: Nadja and Firat
+ - Presentation: Nadja
+
 Everyone creates and works in their own branch - use your own name. 
-Communicate in Slack before doing pull requests. Only commit to own branch unless otherwise agreed :) 
+Communicate in Slack before doing pull requests. Only commit to your own branch unless otherwise agreed :) 
+
+_____________________________________________
 
 ## Database Design
 
@@ -31,9 +39,6 @@ Everyone creates own local database and empty tables in Postgres.
  - **Suppliers to Products (one-to-many)**
 
 ## Data generation
-
-Group together into two's to do pair-programming to populate the tables:
- - Random generation - using pandas, numpy
 
 ### Instructions 
 * Write scripts to populate each table with sample data. Key points to cover:
