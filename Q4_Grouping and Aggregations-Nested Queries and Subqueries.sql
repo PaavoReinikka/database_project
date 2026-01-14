@@ -1,3 +1,9 @@
+/* Den här filen är din analys- och rapportfil.*/
+
+/* Den innehåller bara SQL-frågor som hämtar statistik: 
+Den kör du i pgAdmin eller från Python för att få statistik.*/
+
+
 
 /* Total sales per product category */
 

@@ -1,4 +1,4 @@
- /* Detta är vad jag hade i min pgadmin, då jag genererade alla tables och queries där! */
+ /* Detta är vad pgadmin gjorde, då jag genererade alla tables och queries där! lade in dem här för att skicka i repo */
 
  -- Customers
 CREATE TABLE customers (
@@ -52,6 +52,7 @@ CREATE TABLE shipments (
     shipping_cost NUMERIC(10,2)
 );
 
+/* Test data */
 
 INSERT INTO suppliers (name, contact_info, country) VALUES
 ('TechSupplier', 'tech@email.com', 'Sweden'),
@@ -93,6 +94,8 @@ INSERT INTO shipments (order_id, shipped_date, delivery_date, shipping_cost) VAL
 (2, '2025-01-06', '2025-01-09', 79),
 (4, '2025-01-13', '2025-01-15', 89),
 (5, '2025-01-16', '2025-01-18', 69);
+
+/* Låter mig se datan */
 
 SELECT * FROM public.customers
 ORDER BY customer_id ASC 

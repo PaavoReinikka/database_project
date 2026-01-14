@@ -1,3 +1,5 @@
+# Connecta python till databasen
+
 import psycopg2
 import os
 from dotenv import load_dotenv
@@ -46,3 +48,16 @@ if __name__ == "__main__":
         print(p)
 
     print("\nTotal orders:", total_orders())
+
+
+# bryggan mellan Python och databasen.
+
+# Den gör så att alla dina Python-program kan:
+
+# koppla upp sig mot PostgreSQL
+
+# köra SQL-frågor
+
+# hämta data
+
+# skicka data
