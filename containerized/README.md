@@ -6,7 +6,7 @@ Includes:
 * The service takes care of table definitions and data loading.
 * **Available on port 5431** to avoid conflict with host postgres.
 
-A quick way to setup postgres ready. The `compose.yaml` does everything. Schema (table definitions) are done in `database-migrations/V1__schemas`, dataloading is done in `database-migrations/V2__copyload`. All the data in `./data/` is available inside the database and database-migrations -services.
+A quick way to get the whole database up and running in one command. The `compose.yaml` does everything. Schema (table definitions) are done in `database-migrations/V1__schemas`, dataloading is done in `database-migrations/V2__copyload`. All the data in `./data/` is available inside the database and database-migrations -services.
 
 
 ## Running 
