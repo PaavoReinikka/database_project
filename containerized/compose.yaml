@@ -1,0 +1,32 @@
+services:
+  database:
+    container_name: postgresql_database
+    image: reinikp2/pgvector-database:v1 #alt: postgres:17.0 + pgvector
+    restart: unless-stopped
+    env_file:
+      - project.env
+    ports:
+      - 5431:5432 # (map host:container) if local has a db running on 5432
+    environment:
+      - TZ=Europe/Helsinki  # Set the timezone
+    volumes:
+      #- ./pgdata:/var/lib/postgresql/data # persistent storage on host (optional)
+      - ./data:/data
+    healthcheck: # so that others can use "condition: service_healthy" to check if db is ready and wait
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  database-migrations:
+    image: flyway/flyway:10
+    env_file:
+      - project.env
+    depends_on:
+      database:
+        condition: service_started
+    volumes:
+      - ./database-migrations:/flyway/sql
+      - ./data:/data # for bulk loading, if needed
+    command: -connectRetries=60 -baselineOnMigrate=true migrate
+      
